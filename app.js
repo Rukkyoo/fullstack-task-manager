@@ -4,16 +4,21 @@ const app = express();
 const tasks = require("./routes/tasks");
 const { connect } = require("mongoose");
 require("dotenv").config();
+const notFound = require("./middleware/not-found");
 
+
+app.use(express.static("./public"));
 
 // Parse JSON request bodies
 app.use(express.json());
 
+app.use(notFound);
+
 // routes
-app.get("/hello", (req, res) => {
+/* app.get("/hello", (req, res) => {
   res.send("welcome to my task manager app");
 });
-
+ */
 
 
 // Using the directory below and placing the task route there
@@ -29,7 +34,8 @@ const start = async (req, res) => {
     );
   } catch (error) {
     console.log(error);
-    res.status(401).send("Server Error");
+    /* res.status(401).send("Server Error"); */
+
   }
 };
 
