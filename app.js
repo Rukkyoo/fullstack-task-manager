@@ -5,6 +5,7 @@ const tasks = require("./routes/tasks");
 const { connect } = require("mongoose");
 require("dotenv").config();
 const notFound = require("./middleware/not-found");
+const errorHandlerMiddleware = require("./middleware/error-handler");
 
 
 app.use(express.static("./public"));
@@ -13,6 +14,7 @@ app.use(express.static("./public"));
 app.use(express.json());
 
 app.use(notFound);
+app.use(errorHandlerMiddleware);
 
 // routes
 /* app.get("/hello", (req, res) => {
