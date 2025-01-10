@@ -15,10 +15,4 @@ const taskSchema = new mongoose.Schema({
 
 module.exports = mongoose.model("Task", taskSchema);
 
-/* import mongoose from "mongoose";
-const { Schema } = mongoose;
 
-const TaskSchema = new Schema({
-  name: String,
-  completed: Boolean,
-}) */
